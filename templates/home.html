@@ -1,0 +1,423 @@
+
+<ion-side-menus>
+		  <!-- 中间内容 -->
+		  <ion-side-menu-content ng-controller="ContentController">
+		  	
+		  	<div class="main-body">
+			<!--herder-->
+			<div class="bar bar-header all-header item-icon-left item-icon-right">
+		  <i class="icon ion-location icon-left" ng-click="showModal()"><span class="smallfont">{{collageResult}}</span></i>
+		  <div class="item item-input-inset mysearchdiv">
+	          <label class="item-input-wrapper">
+	            <input class="searchinput" type="text" placeholder="">
+		        <i class="icon ion-ios-search mysearchicon"></i>
+	          </label>
+          </div>
+		  <i class="icon ion-grid" ng-click="toggleRightSideMenu()"></i>
+		</div>
+		<!--benner-->
+		   <div class="swiper-container">
+			    <div class="swiper-wrapper">
+			        <div class="swiper-slide slide01">
+			        	<div class="benner-text">
+			        		<span class="bennertitle">智 慧 校 园 ， 从 心 开 始 </span><br /><span class="bennertitle">Just Do It</span><br /><button class="button button-assertive learnmotre">了解更多</button>
+			        	</div>
+			        </div>
+			        <div class="swiper-slide slide02">
+			        	<div class="benner-text">
+			        		<span class="bennertitle">校园招聘会 ， 有种你就来 </span><br /><span class="bennertitle">Come To Us</span><br /><button class="button button-assertive learnmotre">了解更多</button>
+			        	</div>
+			        </div>
+			        <div class="swiper-slide slide03">
+			        	<div class="benner-text">
+			        		<span class="bennertitle">宿舍评选活动开始了！ </span><br /><span class="bennertitle">快来参加吧</span><br /><button class="button button-assertive learnmotre">了解更多</button>
+			        	</div>
+			        </div>
+			    </div>
+			    <!-- 如果需要分页器 -->
+			    <div class="swiper-pagination"></div>
+			</div>
+		<!--benner-end-->
+		
+		<!--中部的菜单-->
+		<div class="row middle-Menu">
+			<div class="col">
+			    <i class="myicon01"></i>
+			    <span>校园周边</span>
+			</div>
+			<div class="col">
+			    <i class="myicon02"></i>
+			    <span>天气预报</span>
+			</div>
+			<div class="col">
+			    <i class="myicon03"></i>
+			    <span>校园地图</span>
+			</div>
+		</div>
+		<div id="hrline">
+			<span class="left"></span>
+			<i></i>
+			<span class="right"></span>
+		</div>
+		<div class="row middle-Menu">
+			<div class="col">
+			    <i class="myicon04"></i>
+			    <span>零食选购</span>
+			</div>
+			<div class="col">
+			    <i class="myicon05"></i>
+			    <span>热门话题</span>
+			</div>
+			<div class="col">
+			    <i class="myicon06"></i>
+			    <span>校园活动</span>
+			</div>
+		</div>
+		<div id="hrline">
+			<span class="left"></span>
+			<i></i>
+			<span class="right"></span>
+		</div>
+		
+		<!--特别推荐-->
+		<div class="linehr">
+		<div class="car"></div>
+		<div class="cartitle item-icon-left">
+			<i class="icon ion-ios-briefcase-outline"></i>
+			<span>特别推荐 </span>
+		</div>
+		<button class="button right button-assertive morebtn">more</button>
+		<div style="clear: both;"></div>
+		</div>
+		<div class="tuijianbody">
+			
+			 <div class="content ionic-pseudo">
+				      <div class="list card">
+				        <div class="item item-avatar carditem" style="background-image: url(img/safsd.png);background-repeat: repeat;">
+				          <img class="cardimg" src="img/wKgBf1bT9tiAbzCzAANZvWT9P3Y121.jpg">
+				          <div style="border-left: 1px dotted rgba(129,129,129,.6);padding: 10px;padding-bottom:2px;background-color: #fff;height: 100%;">
+				          	<h2>樱花蛋糕</h2>
+				            <p class="itemtext">蛋糕中含樱花味道！</p>
+				            <div class="cardbottom">
+				            	<div class="cardbottom-part">
+				            		<i style="color: crimson;" class="icon ion-ios-heart"></i>
+				                    <span>2521</span>
+				            	</div>
+				            	<div class="cardbottom-part">
+				            		<i style="color: #E6B500;" class="icon ion-thumbsup"></i>
+				                    <span>841</span>
+				            	</div>
+				            	<div class="cardbottom-part">
+				            		<i style="color: #333333;" class="icon ion-thumbsdown"></i>
+				                    <span>3</span>
+				            	</div>
+				            </div>
+				          </div>
+				        </div>
+				      </div>
+				       <!--第二张卡-->
+				       <div class="list card">
+				        <div class="item item-avatar carditem" style="background-image: url(img/safsd.png);background-repeat: repeat;">
+				          <img class="cardimg" src="img/wKgBf1bT9tiAbzCzAANZvWT9P3Y121.jpg">
+				          <div style="border-left: 1px dotted rgba(129,129,129,.6);padding: 10px;padding-bottom:2px;background-color: #fff;height: 100%;">
+				          	<h2>樱花蛋糕</h2>
+				            <p class="itemtext">蛋糕中含樱花味道！</p>
+				            <div class="cardbottom">
+				            	<div class="cardbottom-part">
+				            		<i style="color: crimson;" class="icon ion-ios-heart"></i>
+				                    <span>2521</span>
+				            	</div>
+				            	<div class="cardbottom-part">
+				            		<i style="color: #E6B500;" class="icon ion-thumbsup"></i>
+				                    <span>841</span>
+				            	</div>
+				            	<div class="cardbottom-part">
+				            		<i style="color: #333333;" class="icon ion-thumbsdown"></i>
+				                    <span>3</span>
+				            	</div>
+				            </div>
+				          </div>
+				        </div>
+				      </div>
+				        <!--第三张卡-->
+				        <div class="list card">
+				        <div class="item item-avatar carditem" style="background-image: url(img/safsd.png);background-repeat: repeat;">
+				          <img class="cardimg" src="img/wKgBf1bT9tiAbzCzAANZvWT9P3Y121.jpg">
+				          <div style="border-left: 1px dotted rgba(129,129,129,.6);padding: 10px;padding-bottom:2px;background-color: #fff;height: 100%;">
+				          	<h2>樱花蛋糕</h2>
+				            <p class="itemtext">蛋糕中含樱花味道！</p>
+				            <div class="cardbottom">
+				            	<div class="cardbottom-part">
+				            		<i style="color: crimson;" class="icon ion-ios-heart"></i>
+				                    <span>2521</span>
+				            	</div>
+				            	<div class="cardbottom-part">
+				            		<i style="color: #E6B500;" class="icon ion-thumbsup"></i>
+				                    <span>841</span>
+				            	</div>
+				            	<div class="cardbottom-part">
+				            		<i style="color: #333333;" class="icon ion-thumbsdown"></i>
+				                    <span>3</span>
+				            	</div>
+				            </div>
+				          </div>
+				        </div>
+				      </div>
+				    </div>
+		</div>
+		<!--猜你喜欢-->
+		<div class="linehr">
+		<div class="car"></div>
+		<div class="cartitle item-icon-left">
+			<i class="icon ion-ios-briefcase-outline"></i>
+			<span>猜你喜欢 </span>
+		</div>
+		<button class="button right button-assertive morebtn">more</button>
+		<div style="clear: both;"></div>
+		</div>
+		
+		<div class="swiper-container2">
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide slide04"></div>
+		        <div class="swiper-slide slide05"></div>
+		        <div class="swiper-slide slide06"></div>
+		    </div>
+		</div>
+		<!--end-->
+		<!--footer-->
+		<div style="height:100px ;"></div>
+		<div class="bar bar-footer all-footer">
+			<div class="row">
+				<div class="col avtiveFoot"><i class="icon ion-home"></i><br /><span>首页</span></div>
+				<div class="col"><i class="icon ion-person-stalker"></i><br /><span>社区</span></div>
+				<div class="col"><i class="icon ion-clipboard"></i><br /><span>订单</span></div>
+				<div class="col"><i class="icon ion-person"></i><br /><span>个人中心</span></div>
+			</div>
+		</div>
+		<!--end-->
+		</div>
+		  	
+		  	
+		  </ion-side-menu-content>
+		
+		  <!-- 左侧菜单 -->
+		  <!--<ion-side-menu side="left">
+		  </ion-side-menu>-->
+		
+		  <!-- 右侧菜单 -->
+		  <ion-side-menu side="right" style="background-color: rgba(69,184,202,1);">
+		  	<div class="topheader">
+		  		<div class="tuchen">
+		  		<div class="touxiang">
+		  			<div class="touxiang-img"><div class="secondcheng"><img src="img/123123123.jpg"/></div></div>
+		  			
+		  		    <div class="touxiang-text"><span>何 恭 铭</span><br /><span>HE GONG MING</span><br /><span>这是他的个人签名,然而他什么也没留下</span></div>
+		  		</div>
+		  		<div class="topnav">
+		  		   <div class="row">
+		  		      <div class="col"><i class="icon ion-ios-star"></i><br />我的收藏</div>
+		  		      <div class="col"><i class="icon ion-folder"></i><br />优惠券</div>
+		  		      <div class="col"><i class="icon ion-trophy"></i><br />我的积分</div>
+		  		   </div>
+		  		</div>
+		  		<div class="card myrightcard">
+		  			<ul class="list">
+				        <li class="item item-toggle item-icon-left">
+				           <i class="icon ion-volume-medium"></i>消息通知	
+				           <label class="toggle toggle-balanced">
+				             <input type="checkbox" checked="">
+				             <div class="track">
+				               <div class="handle"></div>
+				             </div>
+				           </label>
+				        </li>
+				    </ul>
+		  		</div>
+		  		<div class="card myrightcard">
+		  			<ul class="list">
+				        <li class="item item-toggle item-icon-left">
+				           <i class="icon ion-paper-airplane"></i>活动推送	
+				           <label class="toggle toggle-balanced">
+				             <input type="checkbox" >
+				             <div class="track">
+				               <div class="handle"></div>
+				             </div>
+				           </label>
+				        </li>
+				    </ul>
+		  		</div>
+		  		<div class="bottom-part item-icon-left">
+		  			退出当前账号<i class="icon ion-android-exit"></i>
+		  		</div>
+		  		</div>
+		  	</div>
+		  	
+		  </ion-side-menu>
+		</ion-side-menus>
+		
+<script type="text/javascript">
+	var mySwiper = new Swiper ('.swiper-container', {
+    direction: 'horizontal',
+    autoplay : 5000,
+    autoplayDisableOnInteraction : false,
+    paginationClickable :true,
+    loop: true,
+    slidesPerView : 'auto',
+    loopedSlides :3,
+    initialSlide :0,
+    effect : 'coverflow',
+    centeredSlides: true,
+    // 如果需要分页器
+    pagination: '.swiper-pagination',
+    coverflow: {
+            rotate: 0,
+            stretch: 0,
+            depth: 120,
+            modifier: 1,
+            slideShadows : true
+        }
+  })        
+</script>
+<script>        
+  var mySwiper = new Swiper ('.swiper-container2', {
+    direction: 'horizontal',
+    loop: true,
+    autoplay : 5000,
+    autoplayDisableOnInteraction : false,
+    initialSlide :1,
+    slidesPerView : 2.2,
+    spaceBetween : 20,
+centeredSlides : true
+  })        
+  </script>
+  <script type="text/javascript">
+  	var app=angular.module("app",['ionic']);
+  	app.controller("ContentController",function($scope,$ionicSideMenuDelegate,$ionicModal){
+  		  $scope.collageResult="中山大学";
+  		  $scope.$on("collageResult",function(event,data){
+						console.log(data);
+					    $scope.collageResult=data;
+					})
+  		
+  		
+		  $scope.toggleRightSideMenu = function() {
+		    $ionicSideMenuDelegate.toggleRight();
+		  };
+		  
+		  $ionicModal.fromTemplateUrl("modal.html",{
+					scope:$scope,
+					animation:"slide-in-up"
+				}).then(function(modal){
+					$scope.modal = modal;
+				});
+				
+				
+				$scope.showModal = function(){
+					$scope.modal.show();
+				}
+				$scope.hideModal = function(){
+					$scope.modal.hide();
+				}
+		
+  	})
+  	//大学选择器
+  	app.controller("collage",function($scope){
+  		$scope.ArrCollage=[{
+							id:0,
+							shengfen:"广东",
+							collage:["中山大学","华南理工大学","广州大学","广东工业大学","汕头大学"]
+						},
+  		              {
+							id:1,
+							shengfen:"北京",
+							collage:["清华大学","北京大学","北京师范大学"]
+						},
+  		                 {
+							id:2,
+							shengfen:"湖南",
+							collage:["中南林业科技大学","湖南大学"]
+						},
+						 {
+							id:3,
+							shengfen:"福建",
+							collage:["福建大学"]
+						},
+  		                 {
+							id:4,
+							shengfen:"湖北",
+							collage:["武汉大学"]
+						},
+  		                 {
+							id:5,
+							shengfen:"天津",
+							collage:["中国民航大学","天津医科大学"]
+						},
+  		                 {
+							id:6,
+							shengfen:"河北",
+							collage:["河北师范大学","唐山师范学院","河北科技大学","河北经贸大学"]
+						}];
+		$scope.Collages=[];//大学数组
+		$scope.resultcollage="中山大学";//结果
+  		$scope.selectShengfen=function($event){
+  			var elem=angular.element($event.target).html();
+  			angular.element($event.target).parent().addClass("activecollage");
+ 			angular.element($event.target).parent().siblings().removeClass("activecollage");
+  			console.log(elem);
+  			for (var i=0;i<$scope.ArrCollage.length;i++) {
+  				if(elem==$scope.ArrCollage[i].shengfen){
+  					$scope.Collages=$scope.ArrCollage[i].collage;
+  					console.log($scope.Collages);
+  				}
+  			}
+  		}
+  		
+  		$scope.selectCollage=function($event){
+  			angular.element($event.target).parent().addClass("activecollage");
+ 			angular.element($event.target).parent().siblings().removeClass("activecollage");
+  			var collelem=angular.element($event.target).html();
+  			$scope.resultcollage=collelem;
+  			console.log($scope.resultcollage);
+  			$scope.$emit("collageResult",collelem);
+  			$scope.$broadcast("collageResult",collelem);	
+  		}
+  		
+  	})
+  	
+  </script>
+  <!--modal-->
+  	<script id="modal.html" type="text/ng-template">
+			<ion-modal-view>
+			    <ion-header-bar class="modalTitle item-icon-left">
+			    	<i class="icon ion-ios-arrow-back" ng-click="hideModal()"></i>
+			        <h1 class="title">选择你的大学</h1>
+			    </ion-header-bar>
+			    <ion-content>
+			      <div class="card" ng-controller="collage">
+			      		<div class="item item-divider">
+						    地区：
+						</div>
+						<div class="school-shengfen">
+						 <div  ng-repeat="x in ArrCollage" ng-click="selectShengfen($event)">
+							<span>{{x.shengfen}}</span>
+						 </div>
+						</div>
+						<div class="item item-divider">
+						    大学：
+						</div>
+						<div class="school-shengfen">
+						 <div ng-repeat="x in Collages" ng-click="selectCollage($event)">
+							<span>{{x}}</span>
+						 </div>
+						</div>
+							<button class="button-full button button-balanced" ng-click="hideModal()">确定</button>
+						
+						
+			      </div>
+			       
+			      		
+			      
+			      
+			    </ion-content>
+			</ion-modal-view>
+		</script>

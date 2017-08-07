@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/ionic.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script src="js/ionic.bundle.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body ng-app="app" ng-controller="aa">
+		<div class="lingshi-body">
+		<div class="bar bar-header item-icon-left all-header">
+			<i class="icon ion-ios-arrow-back" ng-click="jumpToUrl('index.html')"></i>
+			<h1 class="title">零食</h1>
+		</div>
+		<div class="lingshi-content">
+			<ul class="">
+				<li class="lingshione">
+					<div class="lingshi-text">
+						零食选购<br />
+						SNACKS TO CHOOSE <br />
+						<span>面包、饼干、方便面，薯片等各类零食等你选购</span><br />
+						<button class="ljjr button button-assertive learnmotre">立即进入</button>
+					</div>
+				</li>
+				<li class="lingshitwo">
+					<div class="lingshi-text">
+						饮料选购<br />
+						SNACKS TO CHOOSE <br />
+						<span>矿泉水、碳酸饮料、牛奶，酸奶等各类饮料等你选购</span><br />
+						<button class="ljjr button button-assertive learnmotre">立即进入</button>
+					</div>
+				</li>
+				<li class="lingshithree">
+					<div class="lingshi-text">
+						坚果选购<br />
+						SNACKS TO CHOOSE <br />
+						<span>瓜子、花生、开心果，蚕豆等各类坚果等你选购</span><br />
+						<button class="ljjr button button-assertive learnmotre">立即进入</button>
+					</div>
+				</li>
+				<li class="lingshifour">
+					<div class="lingshi-text">
+						水果选购<br />
+						SNACKS TO CHOOSE <br />
+						<span>苹果、菠萝、西瓜，葡萄等各类水果等你选购</span><br />
+						<button class="ljjr button button-assertive learnmotre">立即进入</button>
+					</div>
+				</li>
+			</ul>
+		</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var app= angular.module("app",[]);
+	app.controller("aa",function($scope){
+		$scope.jumpToUrl = function(path) {
+		
+		        window.location=path;
+		        var curUrl = $location.absUrl();
+		        console.log(curUrl);
+		    };
+	})
+</script>

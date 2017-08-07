@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/ionic.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script src="js/jquery-3.2.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper-3.4.2.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/ionic.bundle.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body ng-app="app" ng-controller="appbody">
+		<ion-side-menus class="{{indexClass}}">
+		  <!-- 中间内容 -->
+		  <ion-side-menu-content ng-controller="ContentController">
+		  	
+		  	<div class="main-body">
+			<!--herder-->
+			<div class="bar bar-header all-header item-icon-left item-icon-right">
+		  <i class="icon ion-location icon-left" ng-click="showModal()"><span class="smallfont">{{collageResult}}</span></i>
+		  <div class="item item-input-inset mysearchdiv">
+	          <label class="item-input-wrapper">
+	            <input class="searchinput" type="text" placeholder="">
+		        <i class="icon ion-ios-search mysearchicon"></i>
+	          </label>
+          </div>
+		  <i class="icon ion-grid" ng-click="toggleRightSideMenu()"></i>
+		</div>
+		<!--benner-->
+		   <div class="swiper-container">
+			    <div class="swiper-wrapper">
+			        <div class="swiper-slide slide01">
+			        	<div class="benner-text">
+			        		<span class="bennertitle">智 慧 校 园 ， 从 心 开 始 </span><br /><span class="bennertitle">Just Do It</span><br /><button ng-click="jumpToAct()" class="button button-assertive learnmotre">了解更多</button>
+			        	</div>
+			        </div>
+			        <div class="swiper-slide slide02">
+			        	<div class="benner-text">
+			        		<span class="bennertitle">校园招聘会 ， 有种你就来 </span><br /><span class="bennertitle">Come To Us</span><br /><button ng-click="jumpToAct()" class="button button-assertive learnmotre">了解更多</button>
+			        	</div>
+			        </div>
+			        <div class="swiper-slide slide03">
+			        	<div class="benner-text">
+			        		<span class="bennertitle">宿舍评选活动开始了！ </span><br /><span class="bennertitle">快来参加吧</span><br /><button ng-click="jumpToAct()" class="button button-assertive learnmotre">了解更多</button>
+			        	</div>
+			        </div>
+			    </div>
+			    <!-- 如果需要分页器 -->
+			    <div class="swiper-pagination"></div>
+			</div>
+		<!--benner-end-->
+		
+		<!--中部的菜单-->
+		<div class="row middle-Menu">
+			<div class="col" ng-click="alerttext('该功能未开放！')">
+			    <i class="myicon01"></i>
+			    <span>校园周边</span>
+			</div>
+			<div class="col" ng-click="alerttext('该功能未开放！')">
+			    <i class="myicon02"></i>
+			    <span>天气预报</span>
+			</div>
+			<div class="col" ng-click="alerttext('该功能未开放！')">
+			    <i class="myicon03"></i>
+			    <span>校园地图</span>
+			</div>
+		</div>
+		<div id="hrline">
+			<span class="left"></span>
+			<i></i>
+			<span class="right"></span>
+		</div>
+		<div class="row middle-Menu">
+			<div class="col" ng-click="jumpTolingshi()">
+			    <i class="myicon04"></i>
+			    <span>零食选购</span>
+			</div>
+			<div class="col" ng-click="alerttext('该功能未开放！')">
+			    <i class="myicon05"></i>
+			    <span>热门话题</span>
+			</div>
+			<div class="col" ng-click="jumpToAct()">
+			    <i class="myicon06"></i>
+			    <span>校园活动</span>
+			</div>
+		</div>
+		<div id="hrline">
+			<span class="left"></span>
+			<i></i>
+			<span class="right"></span>
+		</div>
+		
+		<!--特别推荐-->
+		<div class="linehr">
+		<div class="car"></div>
+		<div class="cartitle item-icon-left">
+			<i class="icon ion-ios-briefcase-outline"></i>
+			<span>特别推荐 </span>
+		</div>
+		<button class="button right button-assertive morebtn" ng-click="jumpTolingshi()">more</button>
+		<div style="clear: both;"></div>
+		</div>
+		<div class="tuijianbody">
+			
+			 <div class="content ionic-pseudo">
+				      <div class="list card" ng-repeat="x in indexTuijianArr">
+				        <div class="item item-avatar carditem" style="background-image: url(img/safsd.png);background-repeat: repeat;">
+				          <img ng-click="indexToPro()" class="cardimg" src="{{x.imgSrc}}">
+				          <div style="border-left: 1px dotted rgba(129,129,129,.6);padding: 10px;padding-bottom:2px;background-color: #fff;height: 100%;">
+				          	<h2>{{x.name}}</h2>
+				            <p class="itemtext">蛋糕中含巧克力味道！</p>
+				            <div class="cardbottom">
+				            	<div class="cardbottom-part"  data-id={{x.proid}}>
+				            		<i data-id={{x.proid}} ng-click="addlove($event)" style="color: crimson;" class="icon ion-ios-heart"></i>
+				                    <span ng-click="addlove($event)" data-id={{x.proid}}>{{x.love}}</span>
+				            	</div>
+				            	<div class="cardbottom-part" data-id={{x.proid}} >
+				            		<i ng-click="addzang($event)" data-id={{x.proid}} style="color: #E6B500;" class="icon ion-thumbsup"></i>
+				                    <span ng-click="addzang($event)" data-id={{x.proid}}>{{x.zang}}</span>
+				            	</div>
+				            	<div  data-id={{x.proid}} class="cardbottom-part">
+				            		<i ng-click="addcai($event)" data-id={{x.proid}} style="color: #333333;" class="icon ion-thumbsdown"></i>
+				                    <span ng-click="addcai($event)" data-id={{x.proid}}>{{x.cai}}</span>
+				            	</div>
+				            </div>
+				          </div>
+				        </div>
+				      </div>
+				       <!--第二张卡-->
+				       <!--<div class="list card">
+				        <div class="item item-avatar carditem" style="background-image: url(img/safsd.png);background-repeat: repeat;">
+				          <img class="cardimg" src="img/foodimg01.png">
+				          <div style="border-left: 1px dotted rgba(129,129,129,.6);padding: 10px;padding-bottom:2px;background-color: #fff;height: 100%;">
+				          	<h2>巧克力蛋糕</h2>
+				            <p class="itemtext">蛋糕中含巧克力味道！</p>
+				            <div class="cardbottom">
+				            	<div class="cardbottom-part">
+				            		<i style="color: crimson;" class="icon ion-ios-heart"></i>
+				                    <span>2521</span>
+				            	</div>
+				            	<div class="cardbottom-part">
+				            		<i style="color: #E6B500;" class="icon ion-thumbsup"></i>
+				                    <span>841</span>
+				            	</div>
+				            	<div class="cardbottom-part">
+				            		<i style="color: #333333;" class="icon ion-thumbsdown"></i>
+				                    <span>3</span>
+				            	</div>
+				            </div>
+				          </div>
+				        </div>
+				      </div>-->
+				        <!--第三张卡-->
+				        <!--<div class="list card">
+				        <div class="item item-avatar carditem" style="background-image: url(img/safsd.png);background-repeat: repeat;">
+				          <img class="cardimg" src="img/foodimg01.png">
+				          <div style="border-left: 1px dotted rgba(129,129,129,.6);padding: 10px;padding-bottom:2px;background-color: #fff;height: 100%;">
+				          	<h2>巧克力蛋糕</h2>
+				            <p class="itemtext">蛋糕中含巧克力味道！</p>
+				            <div class="cardbottom">
+				            	<div class="cardbottom-part">
+				            		<i style="color: crimson;" class="icon ion-ios-heart"></i>
+				                    <span>2521</span>
+				            	</div>
+				            	<div class="cardbottom-part">
+				            		<i style="color: #E6B500;" class="icon ion-thumbsup"></i>
+				                    <span>841</span>
+				            	</div>
+				            	<div class="cardbottom-part">
+				            		<i style="color: #333333;" class="icon ion-thumbsdown"></i>
+				                    <span>3</span>
+				            	</div>
+				            </div>
+				          </div>
+				        </div>
+				      </div>-->
+				    </div>
+		</div>
+		<!--猜你喜欢-->
+		<div class="linehr">
+		<div class="car"></div>
+		<div class="cartitle item-icon-left">
+			<i class="icon ion-ios-briefcase-outline"></i>
+			<span>猜你喜欢 </span>
+		</div>
+		<button class="button right button-assertive morebtn">more</button>
+		<div style="clear: both;"></div>
+		</div>
+		
+		<div class="swiper-container2">
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide slide04" ng-click="jumpTolingshi()"></div>
+		        <div class="swiper-slide slide05"></div>
+		        <div class="swiper-slide slide06"></div>
+		    </div>
+		</div>
+		<!--end-->
+		<!--footer-->
+		<div style="height:100px ;"></div>
+		<div class="bar bar-footer all-footer">
+			<div class="row">
+				<div class="col avtiveFoot" ng-click="jumpToIndex()"><i class="icon ion-home"></i><br /><span>首页</span></div>
+				<div class="col" ng-click="jumpToAct()"><i class="icon ion-person-stalker"></i><br /><span>活动</span></div>
+				<div class="col" ng-click="jumpTodingdan()"><i class="icon ion-clipboard"></i><br /><span>订单</span></div>
+				<div class="col" ng-click="jumpToPersonal()"><i class="icon ion-person"></i><br /><span>个人中心</span></div>
+			</div>
+		</div>
+		<!--end-->
+		</div>
+		  	
+		  	
+		  </ion-side-menu-content>
+		
+		  <!-- 左侧菜单 -->
+		  <!--<ion-side-menu side="left">
+		  </ion-side-menu>-->
+		
+		  <!-- 右侧菜单 -->
+		  <ion-side-menu side="right" style="background-color: rgba(69,184,202,1);">
+		  	<div class="topheader">
+		  		<div class="tuchen">
+		  		<div class="touxiang">
+		  			<div class="touxiang-img"><div class="secondcheng"><img src="img/123123123.jpg"/></div></div>
+		  			
+		  		    <div class="touxiang-text"><span>何 恭 铭</span><br /><span>HE GONG MING</span><br /><span>这是他的个人签名,然而他什么也没留下</span></div>
+		  		</div>
+		  		<div class="topnav">
+		  		   <div class="row">
+		  		      <div class="col"><i class="icon ion-ios-star"></i><br />我的收藏</div>
+		  		      <div class="col"><i class="icon ion-folder"></i><br />优惠券</div>
+		  		      <div class="col"><i class="icon ion-trophy"></i><br />我的积分</div>
+		  		   </div>
+		  		</div>
+		  		<div class="card myrightcard">
+		  			<ul class="list">
+				        <li class="item item-toggle item-icon-left">
+				           <i class="icon ion-volume-medium"></i>消息通知	
+				           <label class="toggle toggle-balanced">
+				             <input type="checkbox" checked="">
+				             <div class="track">
+				               <div class="handle"></div>
+				             </div>
+				           </label>
+				        </li>
+				    </ul>
+		  		</div>
+		  		<div class="card myrightcard">
+		  			<ul class="list">
+				        <li class="item item-toggle item-icon-left">
+				           <i class="icon ion-paper-airplane"></i>活动推送	
+				           <label class="toggle toggle-balanced">
+				             <input type="checkbox" >
+				             <div class="track">
+				               <div class="handle"></div>
+				             </div>
+				           </label>
+				        </li>
+				    </ul>
+		  		</div>
+		  		<div class="bottom-part item-icon-left">
+		  			退出当前账号<i class="icon ion-android-exit"></i>
+		  		</div>
+		  		</div>
+		  	</div>
+		  	
+		  </ion-side-menu>
+		</ion-side-menus>
+		
+		<!--<ion-side-menus>
+			<ion-side-menu-content>
+				
+			</ion-side-menu-content>
+		</ion-side-menus>-->
+		
+		<!--零食-->
+		<div class="lingshi-body {{lingshiClass}}">
+		<div class="bar bar-header item-icon-left all-header">
+			<i class="icon ion-ios-arrow-back" ng-click="jumpToIndex()"></i>
+			<h1 class="title">零食</h1>
+		</div>
+		<div class="lingshi-content">
+			<ul class="">
+				<li class="lingshione" ng-repeat="x in lingshiArr" style="background-image: url({{x.imgSrc}});">
+					<div class="lingshi-text">
+						{{x.name}}<br />
+						SNACKS TO CHOOSE <br />
+						<span>{{x.describe}}</span><br />
+						<button data-pid={{x.id}} ng-click="jumpTolingshilist($event)" class="ljjr button button-assertive learnmotre">立即进入</button>
+					</div>
+				</li>
+			</ul>
+		</div>
+		</div>
+
+	
+	     <!--活动-->
+	     <ion-side-menus class="{{activityClass}}">
+			<ion-side-menu-content>
+				 <div class="activity-body">
+	     	<div class="activity-main-body">
+		<div class="bar bar-header item-icon-left all-header">
+			<i class="icon ion-ios-arrow-back" ng-click="jumpToIndex()"></i>
+			<h1 class="title">活动</h1>
+		</div>
+		<div class="activity-content">
+			<ul class="">
+				<li class="activityone">
+					<div class="heisetuchen">
+						<div class="activity-text">
+						音乐会开场<br />
+						<b>音乐世界有你更精彩</b><br />
+						<span>星期五晚<br />7:00-9:30</span><br />
+						<button class="ljjr button button-assertive learnmotre">立即进入</button>
+					</div>
+					</div>
+					
+				</li>
+				<li class="activitytwo" ng-click="jumpToActDetal()">
+					<div class="heisetuchen">
+					<div class="activity-text">
+						篮球开赛<br />
+						<b>篮球比赛，激情澎湃</b> <br />
+						<span>星期五-星期天<br />2:00-5:30</span><br />
+						<button class="ljjr button button-assertive learnmotre">立即进入</button>
+					</div>
+					</div>
+				</li>
+				<li class="activitythree">
+					<div class="heisetuchen">
+					<div class="activity-text">
+						视觉的盛宴<br />
+						<b>《蜘蛛侠3》&nbsp;倾情放映</b> <br />
+						<span>星期五-星期天<br />2:00-5:30</span><br />
+						<button class="ljjr button button-assertive learnmotre">立即进入</button>
+					</div>
+					</div>
+				</li>
+			</ul>
+			<div style="height:50px ;"></div>
+		<div class="bar bar-footer all-footer">
+			<div class="row">
+				<div class="col" ng-click="jumpToIndex()"><i class="icon ion-home"></i><br /><span>首页</span></div>
+				<div class="col avtiveFoot" ng-click="jumpToAct()"><i class="icon ion-person-stalker"></i><br /><span>活动</span></div>
+				<div class="col" ng-click="jumpTodingdan()"><i class="icon ion-clipboard"></i><br /><span>订单</span></div>
+				<div class="col" ng-click="jumpToPersonal()"><i class="icon ion-person"></i><br /><span>个人中心</span></div>
+			</div>
+		</div>
+		</div>
+		</div>
+		</div>
+			</ion-side-menu-content>
+		</ion-side-menus>
+	    
+	     <!---->
+	     <!--活动详细页-->
+	     <ion-side-menus class="{{activitydetalClass}}">
+			<ion-side-menu-content>
+			<div class="activity-body">
+			     	<div class="activity-main-body">
+						<div class="bar bar-header item-icon-left activity-header">
+							<i class="icon ion-ios-arrow-back" ng-click="jumpToIndex()"></i>
+							<h1 class="title">活动详情</h1>
+						</div>
+						<div class="activitydetal-content" style="background-image: url(img/bgdfg.jpe);">
+							<div class="heisetuchen">
+								<div class="activitydetal-neirong">
+									      <h4>校级篮球赛<br /></h4>
+									      <span>万众瞩目的校级篮球赛报名马上开始</span>
+									      <div class="fengeline"></div>
+									      <div class="">报名时间：2017-5-12 至 2017-5-20 <br />比赛时间：2017-5-22 下午 5:30 至 7:30</div>
+									      <div class="fengeline"></div>
+									      <div class="">比赛地点： 体育馆一楼 </div>
+									      <div class="fengeline"></div>
+									      <div class="">报名电话：13112767406<br />报名邮箱：624389325@qq.com </div>
+								</div>
+							</div>
+						    
+							
+						</div>
+					</div>
+			</div>
+			</ion-side-menu-content>
+		</ion-side-menus>
+	     <!---->
+	     <!--个人中心-->
+	     <ion-side-menus class="{{personalClass}}">
+			<ion-side-menu-content>
+				<div class="personal-body">
+	     	<div class="personal-main-body">
+			<div class="personal-content">
+				<div class="bgimg">
+					<div class="bar bar-header item-icon-left personal-header">
+						<i class="icon ion-ios-arrow-back" ng-click="jumpToIndex()"></i>
+						<h1 class="title">个人中心</h1>
+					</div>
+					<div class="activity-touxiang heisetuchen">
+						<div class="activity-touxiang-img"></div>
+						<div class="activity-touxiang-text"><span>何 恭 铭</span><br /><span>HE GONG MING</span><br /><span>这是他的个人签名,然而他什么也没留下</span></div>
+					</div>
+					<div style="height: 300px;"></div>
+					
+					
+			    </div>
+			    <div class="row nopadding activity-row">
+						  <div class="col"><i class="icon ion-ios-star"></i><br />我的收藏</div>
+			  		      <div class="col"><i class="icon ion-folder"></i><br />优惠券</div>
+			  		      <div class="col"><i class="icon ion-trophy"></i><br />我的积分</div>
+					</div>
+				<div class="card myrightcard">
+		  			<ul class="list">
+				        <li class="item item-toggle item-icon-left">
+				           <i class="icon ion-volume-medium"></i>消息通知	
+				           <label class="toggle toggle-positive">
+				             <input type="checkbox" checked="">
+				             <div class="track">
+				               <div class="handle"></div>
+				             </div>
+				           </label>
+				        </li>
+				    </ul>
+		  		</div>
+		  		<div class="card myrightcard">
+		  			<ul class="list">
+				        <li class="item item-toggle item-icon-left">
+				           <i class="icon ion-paper-airplane"></i>活动推送	
+				           <label class="toggle toggle-positive">
+				             <input type="checkbox" >
+				             <div class="track">
+				               <div class="handle"></div>
+				             </div>
+				           </label>
+				        </li>
+				    </ul>
+		  		</div>
+		  		<div class=" button button-assertive button-full item-icon-left">
+		  			退出当前账号<i class="icon ion-android-exit"></i>
+		  		</div>
+		  		<!--footer-->
+		
+		<div class="bar bar-footer all-footer">
+			<div class="row">
+				<div class="col " ng-click="jumpToIndex()"><i class="icon ion-home"></i><br /><span>首页</span></div>
+				<div class="col" ng-click="jumpToAct()"><i class="icon ion-person-stalker"></i><br /><span>活动</span></div>
+				<div class="col" ng-click="jumpTodingdan()"><i class="icon ion-clipboard"></i><br /><span>订单</span></div>
+				<div class="col avtiveFoot" ng-click="jumpToPersonal()"><i class="icon ion-person"></i><br /><span>个人中心</span></div>
+			</div>
+		</div>
+		<!--end-->
+			</div>
+			</div>
+		</div>
+			</ion-side-menu-content>
+		</ion-side-menus>
+	     
+	     
+	     
+	     <!---->
+	
+	     <!--零食的列表页面-->
+	     <div class="lingshilist-body {{lingshilistClass}}">
+			<div class="bar bar-header item-icon-left all-header">
+				<i class="icon ion-ios-arrow-back" ng-click="jumpTolingshi()"></i>
+				<h1 class="title">{{lingshiArr[ptypeid].name}}</h1>
+		    </div>
+		    <div class="lingshilist-content">
+			    <div class="row">
+			    	<div class="col"><img src="{{lingshiArr[ptypeid].imgSrc}}"/><span>{{lingshiArr[ptypeid].name}}<i style="font-size: 12px;"><br />
+						SNACKS TO CHOOSE</i></span></div>
+			    </div>
+			    <div class="pro-list">
+			    	<div class="row">
+			    	<div class="col-33" ng-click="jumpToproduce($event)" ng-repeat="x in listArr" data-proid={{x.proid}}>
+			    		<div class="produce-img" data-proid={{x.proid}}><img src="{{x.imgSrc}}" data-proid={{x.proid}} /></div>
+			    		<div class="produce-text" data-proid={{x.proid}}>
+			    			<b data-proid={{x.proid}}>{{x.name}}<br />{{x.describe}}</b>
+			    			<br />
+			    			<i data-proid={{x.proid}}>&yen;{{x.price}}</i>
+			    		</div>
+			    	</div>
+			        </div>
+			    </div>
+			    
+		    </div>
+		    <!--footer-->
+		
+		<div class="bar bar-footer all-footer">
+			<div class="row">
+				<div class="col " ng-click="jumpToIndex()"><i class="icon ion-home"></i><br /><span>首页</span></div>
+				<div class="col" ng-click="jumpToAct()"><i class="icon ion-person-stalker"></i><br /><span>活动</span></div>
+				<div class="col" ng-click="jumpTodingdan()"><i class="icon ion-clipboard"></i><br /><span>订单</span></div>
+				<div class="col" ng-click="jumpToPersonal()"><i class="icon ion-person"></i><br /><span>个人中心</span></div>
+			</div>
+		</div>
+		<!--end-->
+		</div>
+	     <!---->
+	
+	
+	      <!--零食的详细页-->
+	      <div class="produce-body {{produceClass}}">
+			<div class="bar bar-header item-icon-left all-header">
+				<i class="icon ion-ios-arrow-back" ng-click="jumpTolingshi()"></i>
+				<h1 class="title">{{listArr[Prodeid].name}}</h1>
+		    </div>
+		    <div class="lingshilist-content">
+			    <div class="row">
+			    	<div class="col"><img src="{{listArr[Prodeid].imgSrc}}"/></div>
+			    </div>
+			    <div class="produce-text">
+			    			<b>{{listArr[Prodeid].name}}<br />{{listArr[Prodeid].describe}}</b>
+			    			<br />
+			    			<i>&yen;{{listArr[Prodeid].price}}</i>
+			    </div>
+			    <button data-id={{listArr[Prodeid].proid}} ng-click="addprotodingdan($event)" class="button button-full button-balanced">加入订单</button>	
+		    </div>
+		    <!--footer-->
+		
+		<div class="bar bar-footer all-footer">
+			<div class="row">
+				<div class="col " ng-click="jumpToIndex()"><i class="icon ion-home"></i><br /><span>首页</span></div>
+				<div class="col" ng-click="jumpToAct()"><i class="icon ion-person-stalker"></i><br /><span>活动</span></div>
+				<div class="col" ng-click="jumpTodingdan()"><i class="icon ion-clipboard"></i><br /><span>订单</span></div>
+				<div class="col" ng-click="jumpToPersonal()"><i class="icon ion-person"></i><br /><span>个人中心</span></div>
+			</div>
+		</div>
+		<!--end-->
+		</div>
+	      <!---->
+	
+	       <!--订单-->
+	       <ion-side-menus class="{{dingdanClass}}">
+			<ion-side-menu-content>
+				  <div class="dingdan-body">
+	       	<div class="dingdan-main-body">
+			<div class="bar bar-header item-icon-left all-header">
+				<i class="icon ion-ios-arrow-back" ng-click="jumpToIndex()"></i>
+				<h1 class="title">订单</h1>
+		    </div>
+		    <div class="dingdan-content">
+			    <div class="button-bar bar-calm">
+		          <a class="button avtives" >未付款</a>
+		          <a class="button">已付款</a>
+		        </div>
+			    <div class="card" ng-repeat="x in dingdanArr">
+			    	<div class="item item-avatar">
+			          <img src="{{x.imgSrc}}">
+			          <h2>{{x.name}}</h2>
+			          <p>数量：x{{x.num}} <br /> 价格：&yen;{{x.price}}</p>
+			          <div class="btnjiajian">
+			          	<i data-id={{x.proid}} ng-click="plusnum($event)" class="icon ion-plus-circled"></i>
+			          	<i data-id={{x.proid}} ng-click="minusnum($event)" class="icon ion-minus-circled"></i>
+			          </div>
+			        </div>
+			    </div>
+			    <div class="bar heji">
+			    	<h3>合计：&yen;{{allprice}}</h3>
+			    	<button class="button button-assertive right">结账</button>
+			    </div>
+		    </div>
+		    <!--footer-->
+		<div style="height:70px ;"></div>
+		<div class="bar bar-footer all-footer">
+			<div class="row">
+				<div class="col" ng-click="jumpToIndex()"><i class="icon ion-home"></i><br /><span>首页</span></div>
+				<div class="col" ng-click="jumpToAct()"><i class="icon ion-person-stalker"></i><br /><span>活动</span></div>
+				<div class="col avtiveFoot" ng-click="jumpTodingdan()"><i class="icon ion-clipboard"></i><br /><span>订单</span></div>
+				<div class="col " ng-click="jumpToPersonal()"><i class="icon ion-person"></i><br /><span>个人中心</span></div>
+			</div>
+		</div>
+		<!--end-->
+		</div>
+		</div>
+			</ion-side-menu-content>
+		   </ion-side-menus>
+	       
+	       
+	     
+	       <!---->
+	</body>
+</html>
+<script type="text/javascript">
+	var mySwiper = new Swiper ('.swiper-container', {
+    direction: 'horizontal',
+    autoplay : 5000,
+    autoplayDisableOnInteraction : false,
+    paginationClickable :true,
+    loop: true,
+    slidesPerView : 'auto',
+    loopedSlides :3,
+    initialSlide :0,
+    effect : 'coverflow',
+    centeredSlides: true,
+    // 如果需要分页器
+    pagination: '.swiper-pagination',
+    coverflow: {
+            rotate: 0,
+            stretch: 0,
+            depth: 120,
+            modifier: 1,
+            slideShadows : true
+        }
+  })        
+</script>
+<script>        
+  var mySwiper = new Swiper ('.swiper-container2', {
+    direction: 'horizontal',
+    loop: true,
+    autoplay : 5000,
+    autoplayDisableOnInteraction : false,
+    initialSlide :1,
+    slidesPerView : 2.2,
+    spaceBetween : 20,
+centeredSlides : true
+  })        
+  </script>
+  
+  <script type="text/javascript">
+  	var app=angular.module("app",['ionic']);
+  	app.controller("appbody",function($scope,$location){
+  		$scope.indexClass="show";//首页
+  		$scope.lingshiClass="hide";//零食页
+  		$scope.activityClass="hide";//活动页
+  		$scope.personalClass="hide";//个人中心页
+  		$scope.lingshilistClass="hide";//零食列表页
+  		$scope.produceClass="hide";//零食的详细页
+  		$scope.dingdanClass="hide";//订单页面
+  		$scope.activitydetalClass="hide";//活动详细页
+  		$scope.alerttext=function(abc){
+  			alert(abc);
+  		}
+  		$scope.jumpTolingshi=function(){
+//			$location.path("/lingshi");
+  			$scope.indexClass="hide";
+  			$scope.dingdanClass="hide";
+  			$scope.activitydetalClass="hide";
+  			$scope.lingshilistClass="hide";
+  			$scope.produceClass="hide";
+  			$scope.lingshiClass="show";
+  		}
+  		$scope.jumpToIndex=function(){
+//			$location.path("/home");
+  			$scope.lingshiClass="hide";
+  			$scope.dingdanClass="hide";
+  			$scope.activityClass="hide";
+  			$scope.activitydetalClass="hide";
+  			$scope.lingshilistClass="hide";
+  			$scope.produceClass="hide";
+  			$scope.personalClass="hide";
+  			$scope.indexClass="show";
+  			
+  		}
+  		$scope.jumpTodingdan=function(){
+//			$location.path("/home");
+  			$scope.lingshiClass="hide";
+  			$scope.activityClass="hide";
+  			$scope.lingshilistClass="hide";
+  			$scope.activitydetalClass="hide";
+  			$scope.produceClass="hide";
+  			$scope.personalClass="hide";
+  			$scope.indexClass="hide";
+  			$scope.dingdanClass="show";
+  			$scope.allprice=0;
+  			if ($scope.dingdanArr.length>=1) {
+  				for (var i=0;i<$scope.dingdanArr.length;i++) {
+  			 var pronum=$scope.dingdanArr[i].num;
+  			 var proprice=$scope.dingdanArr[i].price;
+  			 $scope.allprice+=pronum*proprice;
+  		}
+  			} else{
+  				$scope.allprice=0;
+  			}
+  			
+  		
+  			
+  		}
+  		$scope.jumpToAct=function(){
+//			$location.path("/home");
+  			$scope.lingshiClass="hide";
+  			$scope.personalClass="hide";
+  			$scope.activitydetalClass="hide";
+  			$scope.dingdanClass="hide";
+  			$scope.lingshilistClass="hide";
+  			$scope.produceClass="hide";
+  			$scope.indexClass="hide";
+  			$scope.activityClass="show";
+  		}
+  		
+  		$scope.jumpToActDetal=function(){
+//			$location.path("/home");
+  			$scope.lingshiClass="hide";
+  			$scope.personalClass="hide";
+  			$scope.dingdanClass="hide";
+  			$scope.lingshilistClass="hide";
+  			$scope.produceClass="hide";
+  			$scope.indexClass="hide";
+  			$scope.activityClass="hide";
+  			$scope.activitydetalClass="show";
+  		}
+  		
+  		$scope.jumpToPersonal=function(){
+//			$location.path("/home");
+  			$scope.lingshiClass="hide";
+  			$scope.lingshilistClass="hide";
+  			$scope.dingdanClass="hide";
+  			$scope.activitydetalClass="hide";
+  			$scope.produceClass="hide";
+  			$scope.activityClass="hide";
+  			$scope.indexClass="hide";
+  			$scope.personalClass="show";
+  		}
+  		$scope.jumpTolingshilist=function($event){
+//			$location.path("/home");
+  			$scope.lingshiClass="hide";
+  			$scope.activityClass="hide";
+  			$scope.dingdanClass="hide";
+  			$scope.activitydetalClass="hide";
+  			$scope.produceClass="hide";
+  			$scope.personalClass="hide";
+  			$scope.indexClass="hide";
+  			$scope.lingshilistClass="show";
+  			var pid=angular.element($event.target)[0].dataset.pid;
+  			console.log(pid);
+  			$scope.ptypeid=pid;
+  			for (var i=0;i<$scope.lingshiArr.length;i++) {
+  				if(pid==$scope.lingshiArr[i].id){
+  					$scope.listArr=$scope.lingshiArr[i].ProArr;
+  				}
+  			}
+  		}
+  		//index跳转到详细页
+  		$scope.indexToPro=function(){
+  			var proid=1;
+  			$scope.listArr=$scope.lingshiArr[0].ProArr;
+  			if (proid==undefined) {
+  				console.log("出现错误！")
+  			} else{
+  			$scope.lingshiClass="hide";
+  			$scope.activityClass="hide";
+  			$scope.lingshilistClass="hide";
+  			$scope.activitydetalClass="hide";
+  			$scope.dingdanClass="hide";
+  			$scope.personalClass="hide";
+  			$scope.indexClass="hide";
+  			$scope.produceClass="show";
+  			for (var i=0;i<$scope.listArr.length;i++) {
+  				if(proid==$scope.listArr[i].proid){$scope.Prodeid=i;}
+  			}
+  			console.log($scope.listArr);
+  			}
+  			
+  		}
+  		
+  		
+  		//跳到详细页函数
+  		$scope.jumpToproduce=function($event){
+//			$location.path("/home");
+  			
+  			var proid=angular.element($event.target)[0].dataset.proid;
+  			console.log(proid);
+  			if (proid==undefined) {
+  				console.log("出现错误！")
+  			} else{
+  			$scope.lingshiClass="hide";
+  			$scope.activityClass="hide";
+  			$scope.activitydetalClass="hide";
+  			$scope.lingshilistClass="hide";
+  			$scope.dingdanClass="hide";
+  			$scope.personalClass="hide";
+  			$scope.indexClass="hide";
+  			$scope.produceClass="show";
+  			for (var i=0;i<$scope.listArr.length;i++) {
+  				if(proid==$scope.listArr[i].proid){$scope.Prodeid=i;}
+  			}
+  			console.log($scope.listArr);
+  			}
+  			
+  		}
+  		
+  		//增加商品num
+  		$scope.plusnum=function($event){
+  			var proid=angular.element($event.target)[0].dataset.id;
+  			console.log(proid);
+  			for (var i=0;i<$scope.dingdanArr.length;i++) {
+  				if(proid==$scope.dingdanArr[i].proid){
+  					$scope.dingdanArr[i].num++;
+                    
+                    $scope.allprice=0;
+  			if ($scope.dingdanArr.length>=1) {
+  				for (var j=0;j<$scope.dingdanArr.length;j++) {
+  			 var pronum=$scope.dingdanArr[j].num;
+  			 var proprice=$scope.dingdanArr[j].price;
+  			 $scope.allprice+=pronum*proprice;
+  		}
+  			} else{
+  				$scope.allprice=0;
+  			}
+  				}
+  			}
+  		}
+  		//减少商品num
+  		$scope.minusnum=function($event){
+  			var proid=angular.element($event.target)[0].dataset.id;
+  			console.log(proid);
+  			for (var i=0;i<$scope.dingdanArr.length;i++) {
+  				if(proid==$scope.dingdanArr[i].proid){
+  					$scope.dingdanArr[i].num--;
+  					//判断num是否小于0，是就删除
+  					if($scope.dingdanArr[i].num==0){
+						$scope.dingdanArr[i].num++;
+  						$scope.dingdanArr.splice(i,1);
+  					}
+  					
+  					
+  				$scope.allprice=0;
+  			if ($scope.dingdanArr.length>=1) {
+  				for (var j=0;j<$scope.dingdanArr.length;j++) {
+  			 var pronum=$scope.dingdanArr[j].num;
+  			 var proprice=$scope.dingdanArr[j].price;
+  			 $scope.allprice+=pronum*proprice;
+  		}
+  			} else{
+  				$scope.allprice=0;
+  			}
+  				
+  				
+  				}
+  			}
+  		}
+  		
+  		//加入购物车操作
+  		$scope.addprotodingdan=function($event){
+  			var proid=angular.element($event.target)[0].dataset.id;
+  			console.log(proid);
+  			var bool=false;//用于判断是否有商品重复，true表示是
+  			for (var i=0;i<$scope.listArr.length;i++) {
+  				if(proid==$scope.listArr[i].proid){
+  					//判断订单数组里是否已经存在该商品
+  					for (var j=0;j<$scope.dingdanArr.length;j++) {
+  						if(proid==$scope.dingdanArr[j].proid){
+  							$scope.dingdanArr[j].num++;
+  							bool=true;
+  						}
+//							$scope.dingdanArr.push($scope.listArr[i]);
+                        console.log("1");
+  					}
+  					if (bool==false) {
+  						console.log("2");
+  						$scope.dingdanArr.push($scope.listArr[i]);
+  					}
+  				}
+  			}
+  		}
+  		//indexTuijianArr是首页的推荐商品
+//		$scope.indexTuijianArr=$scope.lingshiArr[1];
+//		$scope.indexTuijianArr.push($scope.lingshiArr[0].ProArr[0]);
+//		$scope.indexTuijianArr.push($scope.lingshiArr[0].ProArr[1]);
+//		$scope.indexTuijianArr.push($scope.lingshiArr[0].ProArr[2]);
+  		$scope.listArr=[];
+  		$scope.lingshiArr=[
+  		{id:0,
+  			name:"零食选购",
+  		describe:"面包、饼干、方便面，薯片等各类零食等你选购",
+  		  imgSrc:'./img/foodtype01.png',
+  		  ProArr:[{proid:0,imgSrc:'img/foodimg01.png',num:1,name:"巧克力蛋糕",describe:"0.3kg/个",price:"358.00",love:2510,zang:842,cai:3},
+  		  {proid:1,imgSrc:'img/foodimg01.png',num:1,name:"巧克力蛋糕",describe:"0.3kg/个",price:"358.00",love:2120,zang:842,cai:3},
+  		  {proid:2,imgSrc:'img/foodimg01.png',num:1,name:"巧克力蛋糕",describe:"0.3kg/个",price:"358.00",love:2510,zang:842,cai:3},
+  		  {proid:3,imgSrc:'img/foodimg01.png',num:1,name:"巧克力蛋糕",describe:"0.3kg/个",price:"358.00",love:2510,zang:842,cai:3},
+  		  {proid:4,imgSrc:'img/foodimg01.png',num:1,name:"巧克力蛋糕",describe:"0.3kg/个",price:"358.00",love:2510,zang:842,cai:3}]
+  		},
+  		{id:1,
+  			name:"饮料选购",
+  		describe:"矿泉水、碳酸饮料、牛奶，酸奶等各类饮料等你选购",
+  		imgSrc:'./img/foodtype02.png',
+  		ProArr:[{proid:5,imgSrc:'img/foodimg02.png',num:1,name:"牛肉干",describe:"0.3kg/个",price:"358.00",love:2510,zang:842,cai:3},
+  		  {proid:6,imgSrc:'img/foodimg02.png',num:1,name:"牛肉干",describe:"0.5kg/个",price:"358.00",love:2510,zang:842,cai:3},
+  		  {proid:7,imgSrc:'img/foodimg02.png',num:1,name:"牛肉干",describe:"0.3kg/个",price:"358.00",love:2510,zang:842,cai:3},
+  		  {proid:8,imgSrc:'img/foodimg02.png',num:1,name:"牛肉干",describe:"0.8kg/个",price:"358.00",love:2510,zang:842,cai:3},
+  		  {proid:9,imgSrc:'img/foodimg02.png',num:1,name:"牛肉干",describe:"0.3kg/个",price:"358.00",love:2510,zang:842,cai:3}]},
+  		{id:2,
+  			name:"坚果选购",
+  		describe:"瓜子、花生、开心果，蚕豆等各类坚果等你选购",
+  		imgSrc:'./img/foodtype03.png',
+  		ProArr:[{proid:10,imgSrc:'img/foodimg03.png',num:1,name:"巧克力蛋糕",describe:"0.3kg/个",price:"358.00",love:2510,zang:842,cai:3},
+  		  {proid:11,imgSrc:'img/foodimg03.png',num:1,name:"新疆提子干",describe:"0.3kg/个",price:"358.00",love:2510,zang:842,cai:3},
+  		  {proid:12,imgSrc:'img/foodimg03.png',num:1,name:"新疆提子干",describe:"0.3kg/个",price:"358.00",love:2510,zang:842,cai:3},
+  		  {proid:13,imgSrc:'img/foodimg03.png',num:1,name:"新疆提子干",describe:"0.3kg/个",price:"358.00",love:2510,zang:842,cai:3},
+  		  {proid:14,imgSrc:'img/foodimg03.png',num:1,name:"新疆提子干",describe:"0.3kg/个",price:"358.00",love:2510,zang:842,cai:3}]},
+  		{id:3,
+  			name:"水果选购",
+  		describe:"苹果、菠萝、西瓜，葡萄等各类水果等你选购",
+  		imgSrc:'./img/foodtype04.png',
+  		ProArr:[{proid:15,imgSrc:'img/foodimg04.png',num:1,name:"巧克力蛋糕",describe:"0.3kg/个",price:"358.00",love:2510,zang:842,cai:3},
+  		  {proid:16,imgSrc:'img/foodimg04.png',num:1,name:"字母饼干",describe:"5kg/盒",price:"250.00",love:2510,zang:842,cai:3},
+  		  {proid:17,imgSrc:'img/foodimg04.png',num:1,name:"字母饼干",describe:"5kg/盒",price:"250.00",love:2510,zang:842,cai:3},
+  		  {proid:18,imgSrc:'img/foodimg04.png',num:1,name:"字母饼干",describe:"5kg/盒",price:"250.00",love:2510,zang:842,cai:3},
+  		  {proid:19,imgSrc:'img/foodimg04.png',num:1,name:"字母饼干",describe:"5kg/盒",price:"250.00",love:2510,zang:842,cai:3}]}
+  		];//零食商品的数组
+  		
+  		$scope.dingdanArr=[];
+  		
+         $scope.allprice=0;
+  	})
+  	
+  	app.controller("ContentController",function($scope,$ionicSideMenuDelegate,$ionicModal,$location){
+  		$scope.indexTuijianArr=[{proid:0,imgSrc:'img/foodimg01.png',num:1,name:"巧克力蛋糕",describe:"0.3kg/个",price:"358.00",love:2510,zang:842,cai:3},
+  		  {proid:1,imgSrc:'img/foodimg01.png',num:1,name:"巧克力蛋糕",describe:"0.3kg/个",price:"358.00",love:2120,zang:842,cai:3},
+  		  {proid:2,imgSrc:'img/foodimg01.png',num:1,name:"巧克力蛋糕",describe:"0.3kg/个",price:"358.00",love:2510,zang:842,cai:3}];
+          $scope.addlove=function($event){
+          	var proid=angular.element($event.target)[0].dataset.id;
+  			for (var i=0;i<$scope.indexTuijianArr.length;i++) {
+  				if(proid==$scope.indexTuijianArr[i].proid){
+  					$scope.indexTuijianArr[i].love++;
+  				}
+  			}
+          }
+          
+          $scope.addzang=function($event){
+          	var proid=angular.element($event.target)[0].dataset.id;
+  			for (var i=0;i<$scope.indexTuijianArr.length;i++) {
+  				if(proid==$scope.indexTuijianArr[i].proid){
+  					$scope.indexTuijianArr[i].zang++;
+  				}
+  			}
+          }
+          $scope.addcai=function($event){
+          	var proid=angular.element($event.target)[0].dataset.id;
+  			for (var i=0;i<$scope.indexTuijianArr.length;i++) {
+  				if(proid==$scope.indexTuijianArr[i].proid){
+  					$scope.indexTuijianArr[i].cai++;
+  				}
+  			}
+          }
+          
+  		  $scope.collageResult="中山大学";
+  		  $scope.$on("collageResult",function(event,data){
+						console.log(data);
+					    $scope.collageResult=data;
+					})
+  		
+ 
+		    $scope.jumpToUrl = function(path) {
+		
+		        window.location=path;
+		        $location.path(path);
+		        console.log(curUrl);
+		    };
+
+		  $scope.toggleRightSideMenu = function() {
+		    $ionicSideMenuDelegate.toggleRight();
+		  };
+		  
+		  $ionicModal.fromTemplateUrl("modal.html",{
+					scope:$scope,
+					animation:"slide-in-up"
+				}).then(function(modal){
+					$scope.modal = modal;
+				});
+				
+				
+				$scope.showModal = function(){
+					$scope.modal.show();
+				}
+				$scope.hideModal = function(){
+					$scope.modal.hide();
+				}
+		
+  	})
+  	//大学选择器
+  	app.controller("collage",function($scope){
+  		$scope.ArrCollage=[{
+							id:0,
+							shengfen:"广东",
+							collage:["中山大学","华南理工大学","广州大学","广东工业大学","汕头大学"]
+						},
+  		              {
+							id:1,
+							shengfen:"北京",
+							collage:["清华大学","北京大学","北京师范大学"]
+						},
+  		                 {
+							id:2,
+							shengfen:"湖南",
+							collage:["中南林业科技大学","湖南大学"]
+						},
+						 {
+							id:3,
+							shengfen:"福建",
+							collage:["福建大学"]
+						},
+  		                 {
+							id:4,
+							shengfen:"湖北",
+							collage:["武汉大学"]
+						},
+  		                 {
+							id:5,
+							shengfen:"天津",
+							collage:["中国民航大学","天津医科大学"]
+						},
+  		                 {
+							id:6,
+							shengfen:"河北",
+							collage:["河北师范大学","唐山师范学院","河北科技大学","河北经贸大学"]
+						}];
+		$scope.Collages=[];//大学数组
+		$scope.resultcollage="中山大学";//结果
+  		$scope.selectShengfen=function($event){
+  			var elem=angular.element($event.target).html();
+  			angular.element($event.target).parent().addClass("activecollage");
+ 			angular.element($event.target).parent().siblings().removeClass("activecollage");
+  			console.log(elem);
+  			for (var i=0;i<$scope.ArrCollage.length;i++) {
+  				if(elem==$scope.ArrCollage[i].shengfen){
+  					$scope.Collages=$scope.ArrCollage[i].collage;
+  					console.log($scope.Collages);
+  				}
+  			}
+  		}
+  		
+  		$scope.selectCollage=function($event){
+  			angular.element($event.target).parent().addClass("activecollage");
+ 			angular.element($event.target).parent().siblings().removeClass("activecollage");
+  			var collelem=angular.element($event.target).html();
+  			$scope.resultcollage=collelem;
+  			console.log($scope.resultcollage);
+  			$scope.$emit("collageResult",collelem);
+  			$scope.$broadcast("collageResult",collelem);	
+  		}
+  		
+  	})
+  	
+  </script>
+  <!--modal-->
+  	<script id="modal.html" type="text/ng-template">
+			<ion-modal-view>
+			    <ion-header-bar class="modalTitle item-icon-left">
+			    	<i class="icon ion-ios-arrow-back" ng-click="hideModal()"></i>
+			        <h1 class="title">选择你的大学</h1>
+			    </ion-header-bar>
+			    <ion-content>
+			      <div class="card" ng-controller="collage">
+			      		<div class="item item-divider">
+						    地区：
+						</div>
+						<div class="school-shengfen">
+						 <div  ng-repeat="x in ArrCollage" ng-click="selectShengfen($event)">
+							<span>{{x.shengfen}}</span>
+						 </div>
+						</div>
+						<div class="item item-divider">
+						    大学：
+						</div>
+						<div class="school-shengfen">
+						 <div ng-repeat="x in Collages" ng-click="selectCollage($event)">
+							<span>{{x}}</span>
+						 </div>
+						</div>
+							<button class="button-full button button-balanced" ng-click="hideModal()">确定</button>
+						
+						
+			      </div>
+			       
+			      		
+			      
+			      
+			    </ion-content>
+			</ion-modal-view>
+		</script>
+ 

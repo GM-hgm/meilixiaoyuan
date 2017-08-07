@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/ionic.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script src="js/ionic.bundle.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body ng-app="app" ng-controller="aa">
+		<div class="activity-body">
+		<div class="bar bar-header item-icon-left all-header">
+			<i class="icon ion-ios-arrow-back" ng-click="jumpToUrl('index.html')"></i>
+			<h1 class="title">篮球</h1>
+		</div>
+		<div class="activity-content">
+			<ul class="">
+				<li class="activityone">
+					<div class="heisetuchen">
+						<div class="activity-text">
+						音乐会开场<br />
+						<b>音乐世界有你更精彩</b><br />
+						<span>星期五晚<br />7:00-9:30</span><br />
+						<button class="ljjr button button-assertive learnmotre">立即进入</button>
+					</div>
+					</div>
+					
+				</li>
+				<li class="activitytwo">
+					<div class="heisetuchen">
+					<div class="activity-text">
+						篮球开赛<br />
+						<b>篮球比赛，激情澎湃</b> <br />
+						<span>星期五-星期天<br />2:00-5:30</span><br />
+						<button class="ljjr button button-assertive learnmotre">立即进入</button>
+					</div>
+					</div>
+				</li>
+				<li class="activitythree">
+					<div class="heisetuchen">
+					<div class="activity-text">
+						视觉的盛宴<br />
+						<b>《蜘蛛侠3》&nbsp;倾情放映</b> <br />
+						<span>星期五-星期天<br />2:00-5:30</span><br />
+						<button class="ljjr button button-assertive learnmotre">立即进入</button>
+					</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var app= angular.module("app",[]);
+	app.controller("aa",function($scope){
+		$scope.jumpToUrl = function(path) {
+		
+		        window.location=path;
+		        var curUrl = $location.absUrl();
+		        console.log(curUrl);
+		    };
+	})
+</script>
